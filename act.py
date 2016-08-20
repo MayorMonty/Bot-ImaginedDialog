@@ -19,11 +19,14 @@ print("0. Importing access information...", end="")
 if os.path.isfile("pickles/access.p"):
     with open('pickles/access.p','rb') as f:
          access_information = pickle.load(f)
-    with open('pickles/app.p','rb') as f:
-         app = pickle.load(f)
 else:
     print("Error!\nError: The file 'pickles/access.p' doesn't exist. Did you run 'authorize.py'?")
     sys.exit(1)
+if os.path.isfile("pickes/app.p"):
+    with open('pickles/app.p','rb') as f:
+         app = pickle.load(f)
+else:
+    print("Error!\nError: The file 'pickles/app.p' doesn't exist. Did you run 'config.py'?")
 print("Done")
 
 

@@ -22,8 +22,11 @@ log.setLevel(logging.ERROR)
 
 app = Flask(__name__)
 
-with open('pickles/app.p','rb') as f:
-     app = pickle.load(f)
+if os.path.isfile("pickes/app.p"):
+    with open('pickles/app.p','rb') as f:
+         app = pickle.load(f)
+else:
+    print("Error!\nError: The file 'pickles/app.p' doesn't exist. Did you run 'config.py'?")
 
 def go(access_information):
     """Saves the access token to be used later"""
