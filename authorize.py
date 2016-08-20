@@ -69,8 +69,8 @@ def authorized():
 
 
 if __name__ == '__main__':
-    print("0. Server Start...Done")
-    print("1. Home Page Access...", end="")
     r = praw.Reddit('ImaginedDialogs/v1.0 (made by /u/MayorMonty)')
     r.set_oauth_app_info(app["CLIENT_ID"], app["CLIENT_SECRET"], app["REDIRECT_URI"])
-    app.run(debug=False, port=65010)
+    app.run(debug=False, port=65010, host="0.0.0.0")
+    print("0. Server Start...Done (at 0.0.0.0:65010)")
+    print("1. Home Page Access...", end="")
