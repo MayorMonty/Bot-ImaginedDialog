@@ -16,15 +16,17 @@ import logging
 # So I can exit once authorized
 import sys
 
+import os
+
+app = Flask(__name__)
+
 # Set logging level for Flask to ERROR only
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
-app = Flask(__name__)
-
-if os.path.isfile("pickes/app.p"):
+if os.path.isfile("pickles/app.p"):
     with open('pickles/app.p','rb') as f:
-         app = pickle.load(f)
+         appData = pickle.load(f)
 else:
     print("Error!\nError: The file 'pickles/app.p' doesn't exist. Did you run 'config.py'?")
 
@@ -59,9 +61,13 @@ def homepage():
 def authorized():
     print("Done")
     state = request.args.get('state', '')
+    print(state)
     code = request.args.get('code', '')
+    print(code)
     info = r.get_access_information(code)
+    print(info)
     user = r.get_me()
+    print(user)
     variables_text = "State=%s, code=%s, info=%s." % (state, code,
                                                       str(info))
     text = 'You are %s and have %u link karma.' % (user.name,
@@ -72,8 +78,8 @@ def authorized():
 
 
 if __name__ == '__main__':
-    r = praw.Reddit('ImaginedDialogs/v1.0 (made by /u/MayorMonty)')
-    r.set_oauth_app_info(app["CLIENT_ID"], app["CLIENT_SECRET"], app["REDIRECT_URI"])
-    app.run(debug=False, port=65010, host="0.0.0.0")
     print("0. Server Start...Done (at 0.0.0.0:65010)")
     print("1. Home Page Access...", end="")
+    r = praw.Reddit('ImaginedDialogs/v1.0 (made by /u/MayorMonty)')
+    r.set_oauth_app_info(appData["CLIENT_ID"], appData["CLIENT_SECRET"], appData["REDIRECT_URI"])
+    app.run(debug=False, port=65010, host="0.0.0.0")

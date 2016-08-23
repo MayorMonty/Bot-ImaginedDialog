@@ -42,7 +42,7 @@ for line in stdin:
         print("\nNot saving to pickles/app.p")
         sys.exit(1)
     else:
-        print("\nSaving to pickes/app.p...",end="")
-        pickle.dump(app, open("pickles/access.p", "w"))
+        print("\nSaving to pickles/app.p...",end="")
+        pickle.dump(app, open("pickles/app.p", "w"))
         print("Done")
     break

@@ -22,7 +22,7 @@ if os.path.isfile("pickles/access.p"):
 else:
     print("Error!\nError: The file 'pickles/access.p' doesn't exist. Did you run 'authorize.py'?")
     sys.exit(1)
-if os.path.isfile("pickes/app.p"):
+if os.path.isfile("pickles/app.p"):
     with open('pickles/app.p','rb') as f:
          app = pickle.load(f)
 else:
