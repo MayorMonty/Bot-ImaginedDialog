@@ -1,7 +1,7 @@
 (dp0
 S'CLIENT_SECRET'
 p1
-S'\td-RiqmSHrshpNiKzg4lE3fgp6lc'
+S'[REDACTED]'
 p2
 sS'REDIRECT_URI'
 p3
@@ -9,7 +9,7 @@ S'http://127.0.0.1:65010/authorize_callback'
 p4
 sS'CLIENT_ID'
 p5
-S'DT1Zc1wPKXD43g'
+S'[REDACTED]'
 p6
 sS'LATEST'
 p7
